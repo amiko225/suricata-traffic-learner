@@ -1,0 +1,15 @@
+[Unit]
+Description=Suricata Traffic Learner
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/traffic_learner/suricata
+ExecStart=/usr/bin/python3 /opt/traffic_learner/suricata/main.py
+Restart=on-failure
+KillMode=process
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target
